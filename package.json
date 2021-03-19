@@ -1,0 +1,17 @@
+{
+  "name": "nodejs_boilerplate",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "private": "true",
+  "scripts": {
+    "server": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.19",
+    "morgan": "^1.10.0"
+  }
+}
