@@ -1,30 +1,16 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { withRouter } from 'react-router-dom';
-import axios from 'axios';
+import { login } from '../../actions/userActions';
+import PropTypes from 'prop-types';
 
-const Login = ({ history }) => {
+const Login = ({ token, loading, error }) => {
   const [user, setUser] = useState({});
 
   const { register, handleSubmit, watch, errors } = useForm();
 
-  const handleLogin = async (formData) => {
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
-
-      const res = await axios.post('/api/v1/auth/login', formData, config);
-
-      console.log(res.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
   const onSubmit = (data) => {
-    handleLogin(data);
+    login(data);
     // history.push('/');
   };
 
@@ -70,4 +56,13 @@ const Login = ({ history }) => {
   );
 };
 
-export default withRouter(Login);
+// Login.propTypes = {
+//   token: PropTypes.string.isRequired,
+// };
+
+const mapStateToProps = (state) => ({
+  token: state.user.token,
+  loading: state.loading,
+  error: state.error,
+});
+export default connect(mapStateToProps, { login })(Login);

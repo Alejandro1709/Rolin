@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const cors = require('cors');
 const { connectDB } = require('./config/db');
 const app = express();
 
@@ -8,6 +9,7 @@ dotenv.config();
 
 connectDB();
 
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 app.use(morgan('dev'));
 
