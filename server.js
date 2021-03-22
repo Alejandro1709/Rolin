@@ -26,4 +26,6 @@ app.get('/*', (req, res) => {
 
 const port = process.env.PORT || 3050;
 
-app.listen(port, () => console.log(`Serveris up and running on port: ${port}`));
+app.listen(port, () =>
+  console.log(`Server is up and running on port: ${port}`)
+);
