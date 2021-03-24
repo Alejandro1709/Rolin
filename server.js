@@ -21,7 +21,7 @@ app.use('/api/v1/auth', require('./routes/auth.route'));
 app.use('/api/v1/users', require('./routes/users.route'));
 
 app.get('/*', (req, res) => {
-  res.status(404).json({ message: 'This page does not exists.' });
+  res.status(404).json({ message: 'This page does not exists...' });
 });
 
 const port = process.env.PORT || 3050;
