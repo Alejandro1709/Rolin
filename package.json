@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "license": "MIT",
-  "private": "true",
+  "private": "false",
   "scripts": {
     "server": "nodemon server.js",
     "start": "node server.js",
